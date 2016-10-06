@@ -1,9 +1,12 @@
 package smv.lovearthstudio.com.svmproj.svmlib;
 
-import libsvm.*;
-import java.io.*;
-import java.util.*;
-import java.text.DecimalFormat;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Formatter;
+import java.util.StringTokenizer;
 
 public class svm_scale
 {

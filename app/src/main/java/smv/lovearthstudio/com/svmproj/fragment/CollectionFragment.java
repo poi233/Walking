@@ -43,9 +43,9 @@ public class CollectionFragment extends BaseFragment {
     Spinner mSpAction, mSpPostioin, mSensorHz;          // action,postion,sensorhz 下拉选则器
     public ShSwitchView switchView;
     Button mBtnStartCollection, mBtnStopCollection;     // 开始采集,结束采集的按钮
-/*
+
     EditText etFileInfo;                                // 文件信息
-*/
+
     TextView mTvResult, mTvNum;                                 // 显示结果
     int trainNum;
 
@@ -53,6 +53,7 @@ public class CollectionFragment extends BaseFragment {
     double mPostionInt = 1;                             // position 的label
     int mSensorHzInt;                                   // sensor采样频率
 
+    Boolean isFinish = true;
     SensorManager sensorManager;                        // 传感器管理器
     MySensorListener sensorListener;                    // 传感器监听类,当传感器数据变化时会调用该类的onSensorChanged()方法
 
@@ -76,6 +77,7 @@ public class CollectionFragment extends BaseFragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                isFinish = false;
                 for (int i = 0; i < 100; i++) {
                     try {
                         Thread.sleep(400);
@@ -129,8 +131,8 @@ public class CollectionFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_collection, container, false);
-        findView();
-        setOnClickListener();
+        /*findView();
+        setOnClickListener();*/
         sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         sensorListener = new MySensorListener();
         return view;
@@ -147,10 +149,10 @@ public class CollectionFragment extends BaseFragment {
     private void crateTrainFile() {
         try {
             String fileNume = "train";
-/*
+
             String fileNameInfo = etFileInfo.getText().toString().trim();
-*/
-            String fileNameInfo = "TEST";
+
+            //String fileNameInfo = "TEST";
             if (!TextUtils.isEmpty(fileNameInfo)) {
                 fileNume += fileNameInfo;
             }
@@ -169,9 +171,9 @@ public class CollectionFragment extends BaseFragment {
         mBtnStartCollection = (Button) view.findViewById(R.id.btn_start_collection);
         mBtnStopCollection = (Button) view.findViewById(R.id.btn_stop_collection);
 */
-/*
+
         etFileInfo = (EditText) view.findViewById(R.id.et_file_info);
-*/
+
         mTvResult = (TextView) view.findViewById(R.id.tv_result);
         mTvNum = (TextView) view.findViewById(R.id.tv_num);
         switchView = (ShSwitchView) view.findViewById(R.id.switch_view);

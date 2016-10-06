@@ -1,7 +1,5 @@
 package smv.lovearthstudio.com.svmproj.util;
 
-import java.util.SortedMap;
-
 public class Features{
 
 	/**求数组最小值 double**/
@@ -739,7 +737,7 @@ public class Features{
      * @return
      */
     public static double iqr(double[] list){
-    	return Features.thirdQuartile(list)-Features.firstQuartile(list);
+    	return Features.thirdQuartile(list)- Features.firstQuartile(list);
     }
     /**
      * 绝对平均差

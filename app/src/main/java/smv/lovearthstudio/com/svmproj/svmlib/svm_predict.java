@@ -53,8 +53,8 @@ public class svm_predict {
 		double error = 0;
 		double sumv = 0, sumy = 0, sumvv = 0, sumyy = 0, sumvy = 0;
 
-		int svm_type=svm.svm_get_svm_type(model);
-		int nr_class=svm.svm_get_nr_class(model);
+		int svm_type= svm.svm_get_svm_type(model);
+		int nr_class= svm.svm_get_nr_class(model);
 		double[] prob_estimates=null;
 
 		if(predict_probability == 1)
@@ -62,7 +62,7 @@ public class svm_predict {
 			if(svm_type == svm_parameter.EPSILON_SVR ||
 			   svm_type == svm_parameter.NU_SVR)
 			{
-				svm_predict.info("Prob. model for test data: target value = predicted value + z,\nz: Laplace distribution e^(-|z|/sigma)/(2sigma),sigma="+svm.svm_get_svr_probability(model)+"\n");
+				svm_predict.info("Prob. model for test data: target value = predicted value + z,\nz: Laplace distribution e^(-|z|/sigma)/(2sigma),sigma="+ svm.svm_get_svr_probability(model)+"\n");
 			}
 			else
 			{
@@ -93,7 +93,7 @@ public class svm_predict {
 			}
 
 			double v;
-			if (predict_probability==1 && (svm_type==svm_parameter.C_SVC || svm_type==svm_parameter.NU_SVC))
+			if (predict_probability==1 && (svm_type== svm_parameter.C_SVC || svm_type== svm_parameter.NU_SVC))
 			{
 				v = svm.svm_predict_probability(model,x,prob_estimates);
 				output.writeBytes(v+" ");

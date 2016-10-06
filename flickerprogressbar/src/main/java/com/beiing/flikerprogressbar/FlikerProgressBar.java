@@ -304,7 +304,7 @@ public class FlikerProgressBar extends View implements Runnable{
             if(!isStop){
                 text = "数据采集中" + progress + "%";
             } else {
-                text = "继续";
+                text = "数据采集完成";
             }
         } else{
             text = "数据采集完成";
